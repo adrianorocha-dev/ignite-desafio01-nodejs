@@ -78,8 +78,8 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
     return response.status(404).json({ error: 'TODO não encontrado.' })
   }
 
-  todo.title = title ?? todo.title;
-  todo.deadline = deadline ?? todo.deadline;
+  todo.title = title || todo.title;
+  todo.deadline = deadline || todo.deadline;
 
   return response.status(200).json(todo);
 });
